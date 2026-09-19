@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VA Loan Calculator — Household Income &amp; Residual Income | Lawton Buyer Tools</title>
+<title>VA Loan Calculator | Lawton Buyer Tools</title>
 <meta name="description" content="A full VA loan calculator for married buyers, spouses, and co-borrowers: combine active duty pay, military retirement, tax-free BAH/BAS, and VA disability compensation into real qualifying income, DTI, and VA residual income.">
 <link rel="canonical" href="https://dustinrayokrealtor.github.io/lawton-buyer-tools-v2/va-loan-calculator.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="VA Loan Calculator — Household Income &amp; Residual Income">
+<meta property="og:title" content="VA Loan Calculator for Households">
 <meta property="og:description" content="Combine active duty pay, retirement, disability compensation, and a spouse or co-borrower's income into a real VA loan qualification estimate.">
 <meta property="og:url" content="https://dustinrayokrealtor.github.io/lawton-buyer-tools-v2/va-loan-calculator.html">
 <meta property="og:image" content="https://dustinrayokrealtor.github.io/lawton-buyer-tools-v2/team-logo.png">
@@ -186,7 +186,7 @@ footer b{color:var(--ink-2)}
   <div class="phin">
     <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.3 4.9 5.4.8-3.9 3.8.9 5.4-4.7-2.5-4.7 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg>VA loan calculator</span>
     <h1>VA Loan Calculator</h1>
-    <p class="intro">Built for households, not just a single BAH number. Combine active duty pay, military retirement, tax-free BAH and BAS, and VA disability compensation with a spouse or co-borrower's income, then see the real qualifying income, VA residual income, and how much house it supports. This is separate from the BAH ceiling tool, which only looks at one housing allowance in isolation.</p>
+    <p class="intro">Built for the whole household. Combine active duty pay, military retirement, tax-free BAH and BAS, and VA disability compensation with a spouse or co-borrower's income, then see the real qualifying income, VA residual income, and how much house it supports. The BAH tool looks at one allowance by itself. This one looks at everything.</p>
     <div class="hero-cta">
       <a class="hbtn" href="tel:5803514683"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Call or text</a>
       <a class="hbtn alt" href="mailto:dustin@homes-lawton.com?subject=VA%20Loan%20Calculator&body=Hi%20Dustin%2C%0A%0AI%20was%20using%20the%20VA%20loan%20calculator.%20What%20I%20am%20trying%20to%20figure%20out%3A%0A%0A%0A%0AThanks%2C%0A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path></svg>Email me</a>
@@ -260,7 +260,7 @@ footer b{color:var(--ink-2)}
   <button type="button" id="btn-example">Load an example household</button>
   <button type="button" id="btn-reset">Reset</button>
 </div>
-<p class="sendhint">Print or save this as a PDF and I'll email you a copy of the exact scenario on screen, then follow up with anything in the income picture I'd push back on before it goes to a lender.</p>
+<p class="sendhint">Print or save this as a PDF and I'll email you a copy of the exact scenario on screen, then follow up with anything I'd want a lender to look at first.</p>
 
 <!-- ============ TABS ============ -->
 <div class="tabs" role="tablist" aria-label="VA loan calculator sections">
@@ -274,7 +274,7 @@ footer b{color:var(--ink-2)}
 <section class="panel" id="p-income" role="tabpanel" aria-labelledby="tab-income">
   <div>
     <h2>Who's on the loan, and where the money comes from</h2>
-    <p class="muted" style="margin-top:6px">Borrower 1 is the veteran using entitlement. Add a spouse or co-borrower if the loan will be joint &mdash; married buyers where one spouse is retired and rated disabled, and the other is still on active duty or working a civilian job, are common here.</p>
+    <p class="muted" style="margin-top:6px">Borrower 1 is the veteran using entitlement. Add a spouse or co-borrower if the loan will be joint. Households where one spouse is retired and rated disabled and the other is still serving or working a civilian job are common here.</p>
   </div>
 
   <div class="controls" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
@@ -399,7 +399,7 @@ footer b{color:var(--ink-2)}
 
   <div class="note">
     <span class="k">Why two incomes can look this different</span>
-    <p>A household where one spouse is retired and rated disabled and the other is still serving can have a tax-free disability check, taxable retirement pay, and a full active-duty pay and allowance package, all at once. None of that shows up if you only run one person's BAH. Hit "Load an example household" above to see it filled in with sample numbers &mdash; swap in the real LES and award letter figures before using it with a lender.</p>
+    <p>A household where one spouse is retired and rated disabled and the other is still serving can have a tax-free disability check, taxable retirement pay, and a full active-duty pay and allowance package, all at once. None of that shows up if you only run one person's BAH. Hit "Load an example household" above to see it filled in with sample numbers. Swap in your real LES and award letter figures before you take it to a lender.</p>
   </div>
   <div class="printonly muted"><b>Prepared by Dustin Ray, Buyer Specialist. 580-351-4683. dustin@homes-lawton.com</b></div>
 </section>
@@ -431,7 +431,7 @@ footer b{color:var(--ink-2)}
   </div>
   <div class="note warn">
     <span class="k">Gross-up is an estimate, not a guarantee</span>
-    <p>Lenders vary between 15% and 25%, and some use the buyer's actual marginal tax rate instead of a flat percentage. Confirm the number your lender is actually using before quoting a qualifying income figure to a buyer.</p>
+    <p>Lenders vary between 15% and 25%, and some use the buyer's actual marginal tax rate instead of a flat percentage. Confirm the number your lender is using before you count on a qualifying income figure.</p>
   </div>
 </section>
 
@@ -470,7 +470,7 @@ footer b{color:var(--ink-2)}
     </table>
   </div>
   <div class="cards">
-    <div class="card"><span class="lab">Supportable purchase price</span><span class="v blue" id="d-supportable" data-lead="Supportable purchase price">$0</span><p>The lower of the two ceilings above &mdash; the more conservative number to shop with.</p></div>
+    <div class="card"><span class="lab">Supportable purchase price</span><span class="v blue" id="d-supportable" data-lead="Supportable purchase price">$0</span><p>The lower of the two ceilings above. The safer number to shop with.</p></div>
   </div>
 </section>
 
@@ -513,26 +513,26 @@ footer b{color:var(--ink-2)}
     <div class="dbody">
       <ul>
         <li><b>Property tax, 1.11%, and insurance, $19.28 per $1,000 of coverage.</b> Same Lawton and Comanche County defaults as the payment toolkit. Pull the real numbers off the assessor site and an actual insurance quote before quoting a payment.</li>
-        <li><b>VA funding fee.</b> 2.15% first use with less than 5% down, 1.5% at 5&ndash;9.99% down, 1.25% at 10% or more down; 3.3% on a subsequent use with less than 5% down. Exempt if a veteran on the loan draws service-connected disability compensation or holds a Purple Heart on the closing date. It only takes one qualifying veteran on the loan for the exemption to apply &mdash; a non-veteran spouse's status doesn't matter for this.</li>
+        <li><b>VA funding fee.</b> 2.15% first use with less than 5% down, 1.5% at 5% to 9.99% down, 1.25% at 10% or more down; 3.3% on a subsequent use with less than 5% down. Exempt if a veteran on the loan draws service-connected disability compensation or holds a Purple Heart on the closing date. One qualifying veteran on the loan is enough for the exemption. A non-veteran spouse's status doesn't matter for this.</li>
         <li><b>Tax-free gross-up, up to 25%.</b> BAH, BAS, and VA disability compensation are exempt from federal income tax, so VA guidelines let a lender add back a percentage before running the debt-to-income ratio. This calculator applies the gross-up to the qualifying-income number only, not to the residual income number, since residual income is meant to reflect real take-home dollars.</li>
-        <li><b>Estimated withholding, 22%.</b> A placeholder for the tax bite on taxable pay, used only to approximate net take-home for the residual income test. Tax-free income (BAH, BAS, disability compensation) is already counted at full face value with no withholding, because none is withheld from it. The real number is whatever's actually on the LES or paystub &mdash; use that instead once you have it.</li>
-        <li><b>Military retirement pay.</b> Treated as fully taxable here. A retiree rated 50% or higher generally keeps both retirement pay and disability compensation under concurrent retirement and disability pay; below 50%, VA disability compensation typically offsets retirement pay dollar for dollar unless Combat-Related Special Compensation applies. Don't assume both figures stack for a specific buyer without checking their actual award letter and retiree account statement.</li>
+        <li><b>Estimated withholding, 22%.</b> A placeholder for the tax bite on taxable pay, used only to approximate net take-home for the residual income test. Tax-free income (BAH, BAS, disability compensation) is already counted at full face value with no withholding, because none is withheld from it. The real number is whatever's on the LES or paystub. Use that once you have it.</li>
+        <li><b>Military retirement pay.</b> Treated as fully taxable here. A retiree rated 50% or higher generally keeps both retirement pay and disability compensation under concurrent retirement and disability pay; below 50%, VA disability compensation typically offsets retirement pay dollar for dollar unless Combat-Related Special Compensation applies. Don't assume both figures stack without checking the award letter and retiree account statement.</li>
         <li><b>VA residual income table, families of 1 to 5, loan amounts of $80,000 and up.</b> Northeast $450 / $755 / $909 / $1,025 / $1,062. Midwest and South (Oklahoma) $441 / $738 / $889 / $1,003 / $1,039. West $491 / $823 / $990 / $1,117 / $1,158. Add $80 per family member beyond five, in every region. Loans under $80,000 use a lower table; check with the lender if that applies.</li>
-        <li><b>41% DTI ceiling.</b> Not a hard VA cap &mdash; there's no maximum ratio in VA guidelines &mdash; but 41% is the point past which underwriters typically want documented compensating factors (residual income well above the minimum, strong credit, significant cash reserves, and so on).</li>
+        <li><b>41% DTI ceiling.</b> Not a hard VA cap. There is no maximum ratio in VA guidelines, but past 41% underwriters usually want documented compensating factors: residual income well above the minimum, strong credit, real cash reserves.</li>
       </ul>
     </div>
   </details>
 
   <div class="note warn">
     <span class="k">What this tool is not</span>
-    <p>This is an estimate for shopping and for talking through a scenario with a buyer, not a loan estimate, a pre-approval, a credit decision, or tax advice. Actual qualifying income, gross-up percentage, residual income, taxes, insurance, and the funding fee are all determined by the buyer's actual lender and the VA. Confirm every number here against real pay stubs, a VA award letter, and a lender's own worksheet before using it in an offer.</p>
+    <p>This is an estimate for shopping, not a loan estimate, a pre-approval, a credit decision, or tax advice. Qualifying income, gross-up, residual income, taxes, insurance, and the funding fee are all set by your lender and the VA. Confirm every number here against real pay stubs, your VA award letter, and the lender's own worksheet before it goes in an offer.</p>
   </div>
 </section>
 
 <footer>
   <p><b>Dustin Ray, Buyer Specialist. 580-351-4683. dustin@homes-lawton.com</b></p>
   <p>Pam &amp; Barry's Team RE/MAX Professionals &middot; <a href="tel:+15802488800">(580) 248-8800</a> &middot; <a href="https://www.pamandbarry.com/">pamandbarry.com</a> &middot; <a href="mailto:info@homes-lawton.com">info@homes-lawton.com</a></p>
-  <p>Pam &amp; Barry's Team, RE/MAX Professionals. Each Office Independently Owned and Operated. Figures here are estimates for planning and are not a commitment to lend, a loan estimate, or a pre-approval. Rates, taxes, insurance, gross-up percentages, and residual income minimums are set or verified by the buyer's lender and the VA, and change over time. Example household figures on this page (military pay, BAH, BAS, and VA disability compensation) are illustrative only &mdash; use actual LES and award-letter figures for any real buyer.</p>
+  <p>Pam &amp; Barry's Team, RE/MAX Professionals. Each Office Independently Owned and Operated. Figures here are estimates for planning and are not a commitment to lend, a loan estimate, or a pre-approval. Rates, taxes, insurance, gross-up percentages, and residual income minimums are set or verified by the buyer's lender and the VA, and change over time. Example household figures on this page (military pay, BAH, BAS, and VA disability compensation) are samples. Use actual LES and award letter figures.</p>
 </footer>
 
 </div>
