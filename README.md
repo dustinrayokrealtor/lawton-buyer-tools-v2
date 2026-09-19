@@ -2,12 +2,13 @@
 
 Client-facing buyer tools for Lawton and Southwest Oklahoma, published with GitHub Pages.
 
-Live site: https://dustinrayokrealtor.github.io/lawton-buyer-tools/
+Live site: https://dustinrayokrealtor.github.io/lawton-buyer-tools-v2/
 
 | Page | Path |
 | --- | --- |
 | Landing page | `/` |
 | Buyer Payment Toolkit | `/payment-toolkit.html` |
+| VA Loan Calculator (household income &amp; residual income) | `/va-loan-calculator.html` |
 | Buying a Home in Lawton (consult packet) | `/buying-guide.html` |
 | What Your BAH Buys at Fort Sill | `/bah/` |
 | Moving to Fort Sill | `/fort-sill/` |
