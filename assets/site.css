@@ -518,3 +518,28 @@ body.pdf-mode .lg-toast { display: none !important; }
 body.pdf-mode .panel { display: flex !important; padding-top: 14px; border-top: 1px solid var(--line); margin-top: 14px; }
 body.pdf-mode header.site { position: static; }
 body.pdf-mode .printonly { display: block !important; }
+
+/* ==========================================================================
+   Compact header on phones. The header is pinned, so on a small screen it
+   collapses to one slim row: back link, team name, logos. Phone and email
+   still live in the footer and the sticky call bar.
+   ========================================================================== */
+@media (max-width: 680px) {
+  header.site .hdr, header.site .sitehdr { padding-block: 8px; gap: 10px; flex-wrap: nowrap; align-items: center; }
+  .brandline span, .brandname span { display: none; }
+  .brandline, .brandname { font-size: 12.5px; line-height: 1.2; }
+  .hdrleft { gap: 10px; flex-wrap: nowrap; min-width: 0; }
+  .backlink { padding: 7px 10px; font-size: 11px; letter-spacing: .06em; }
+  .backlink svg { width: 11px; height: 11px; }
+  .logo-wrap { gap: 8px; flex: none; }
+  .pb-logo { height: 34px; }
+  .rx-chip { padding: 5px 8px; }
+  .rx-chip img { height: 16px; }
+  .logochip { padding: 6px 10px; }
+  .logochip img { height: 20px; }
+}
+/* A touch tighter on desktop too. */
+@media (min-width: 681px) {
+  header.site .hdr, header.site .sitehdr { padding-block: 12px; }
+  .pb-logo { height: 52px; }
+}
