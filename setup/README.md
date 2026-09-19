@@ -47,14 +47,12 @@ API keys, nothing to pay for.
 
 ## 5. Plug the URL into the site
 
-Open `assets/leadgate.js` and paste the URL between the quotes on this line:
+Open `assets/leadgate.js` and paste the URL between the quotes on the
+`var ENDPOINT = "..."` line. Commit and push. Pages redeploys in a minute or two.
 
-```js
-var ENDPOINT = "";
-```
-
-Commit and push. Pages redeploys in a minute or two. Or just send the URL to
-Claude and it'll do this step.
+**Status: done on Sep 18, 2026.** The sheet is "Lawton Buyer Tools Leads" in
+dustin.ray.ok@gmail.com's Drive, the script project is "Lawton Buyer Tools lead
+mailer" bound to it, and the live URL is already in `assets/leadgate.js`.
 
 ## Changing the script later
 
