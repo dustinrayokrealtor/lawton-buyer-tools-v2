@@ -15,7 +15,7 @@
 (function(){
   "use strict";
 
-  var ENDPOINT = "";  // e.g. "https://script.google.com/macros/s/AKfy.../exec"
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbwSkkgNvZqNTFDnO9jp5sIiXGEer16rfLo08lX2XEH41uk5IcsiAI7GPcQ3n-Jxdi2d/exec";
   var PDF_LIB  = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
   var KEY      = "lbt.lead.v1";
 
