@@ -84,6 +84,7 @@ p{margin:0;max-width:64ch}
 .hero .big{font-size:var(--s4);font-weight:600;line-height:1;color:#fff}
 .hero .sub{font-size:var(--s-1);color:var(--on-dark-dim);margin-top:7px}
 .stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:1px;background:#3D4759}
+@media (max-width:640px){.stack{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .stack div{background:var(--navy);padding:10px 11px 12px;display:flex;flex-direction:column;gap:4px}
 .stack dt{color:var(--on-dark-dim);font-size:11px;letter-spacing:1.6px}
 .stack dd{margin:0;font-size:var(--s1);font-weight:600;color:#fff}
@@ -233,7 +234,7 @@ footer b{color:var(--ink-2)}
 <section class="hero" aria-live="polite">
   <div>
     <span class="lab">Total monthly payment</span>
-    <div class="big" id="hero-piti">$1,829</div>
+    <div class="big" id="hero-piti" data-lead="Total monthly payment">$1,829</div>
     <div class="sub" id="hero-note">VA, zero down, 6.76%, 30 year</div>
   </div>
   <dl class="stack">
@@ -245,11 +246,10 @@ footer b{color:var(--ink-2)}
 </section>
 
 <div class="actions">
-  <a class="send" id="sendmail" href="mailto:dustin@homes-lawton.com?subject=Buyer%20Payment%20Toolkit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path></svg>Email me this breakdown</a>
   <button type="button" class="primary" id="btn-print">Print or save as PDF</button>
   <button type="button" id="btn-reset">Reset to Lawton median</button>
 </div>
-<p class="sendhint">The email button opens your own mail app with these numbers already filled in. Send it and I'll reply with what's actually listed in this payment range, plus anything in the numbers I'd push back on.</p>
+<p class="sendhint">Print or save this as a PDF and I'll email you a copy of the exact scenario on screen, then follow up with what's actually listed in this payment range.</p>
 
 <!-- ============ TABS ============ -->
 <div class="tabs" role="tablist" aria-label="Toolkit sections">
@@ -329,7 +329,7 @@ footer b{color:var(--ink-2)}
 <section class="panel" id="p-offer" role="tabpanel" aria-labelledby="tab-offer" hidden>
   <div>
     <h2>Price cut or seller concession</h2>
-    <p class="muted" style="margin-top:6px">Sellers here are closing at 98.5% of list, so they don't cut much off the number. The same dollars spent buying the rate down move the payment a lot further. This shows the difference on the deal in front of you.</p>
+    <p class="muted" style="margin-top:6px">Sellers here are closing at 98.5% of list, so they don't cut much off the number. The same dollars spent buying the rate down move the payment a lot further. This shows the difference on the deal in front of you. For the full comparison, including a 2-1 temporary buydown and what it costs to set up, use the <a href="buydown.html">Rate Buydown vs Price Cut</a> tool.</p>
   </div>
   <div class="controls" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
     <div class="ctl">
@@ -601,43 +601,6 @@ footer b{color:var(--ink-2)}
       "%, " + $("term").value + " year";
     $("downhint").textContent = money(c.down) + " out of pocket";
     if (c.hoa > 0) $("hero-note").textContent += ", includes " + money(c.hoa) + " HOA";
-
-    buildMail(c, names[loan]);
-  }
-
-  // Prefill an email with whatever scenario is on screen, so a buyer can send
-  // it from their own mail app instead of filling out a form.
-  function buildMail(c, loanName){
-    var years = $("term").value;
-    var rate  = num("rate", 6.76);
-    var L = [];
-    L.push("Hi Dustin,");
-    L.push("");
-    L.push("I ran some numbers in your payment toolkit. Here is where I landed:");
-    L.push("");
-    L.push("Purchase price: " + money(c.price));
-    L.push("Loan: " + loanName + ", " + (c.downPct === 0 ? "zero down" : c.downPct + "% down (" + money(c.down) + ")"));
-    L.push("Rate: " + rate + "%, " + years + " year");
-    L.push("");
-    L.push("Monthly payment breakdown:");
-    L.push("  Principal and interest: " + money(c.pi));
-    L.push("  Property tax: " + money(c.tax));
-    L.push("  Homeowners insurance: " + money(c.ins));
-    L.push("  Mortgage insurance: " + money(c.mi));
-    if (c.hoa > 0) L.push("  HOA: " + money(c.hoa));
-    L.push("  Total monthly payment: " + money(c.total));
-    L.push("");
-    L.push("A couple of things I'd like to know:");
-    L.push("  - What is actually listed around this payment right now?");
-    L.push("  - Anything in these numbers that looks off to you?");
-    L.push("");
-    L.push("Thanks,");
-    L.push("");
-
-    var subject = "Payment numbers - " + money(c.price) + " at " + money(c.total) + " a month";
-    $("sendmail").href = "mailto:dustin@homes-lawton.com"
-      + "?subject=" + encodeURIComponent(subject)
-      + "&body=" + encodeURIComponent(L.join("\n"));
   }
 
   function renderCompare(){
@@ -883,7 +846,6 @@ footer b{color:var(--ink-2)}
     });
   });
 
-  $("btn-print").addEventListener("click", function(){ window.print(); });
   $("btn-reset").addEventListener("click", function(){
     $("price").value = MEDIAN;
     $("rate").value = 6.76;
@@ -899,5 +861,6 @@ footer b{color:var(--ink-2)}
   renderAll();
 })();
 </script>
+<script src="assets/leadgate.js" defer></script>
 </body>
 </html>

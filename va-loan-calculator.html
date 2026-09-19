@@ -87,6 +87,7 @@ p{margin:0;max-width:64ch}
 .hero .big{font-size:var(--s4);font-weight:600;line-height:1;color:#fff}
 .hero .sub{font-size:var(--s-1);color:var(--on-dark-dim);margin-top:7px}
 .stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:1px;background:#3D4759}
+@media (max-width:640px){.stack{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .stack div{background:var(--navy);padding:10px 11px 12px;display:flex;flex-direction:column;gap:4px}
 .stack dt{color:var(--on-dark-dim);font-size:11px;letter-spacing:1.6px}
 .stack dd{margin:0;font-size:var(--s1);font-weight:600;color:#fff}
@@ -243,7 +244,7 @@ footer b{color:var(--ink-2)}
 <section class="hero" aria-live="polite">
   <div>
     <span class="lab">Total monthly payment</span>
-    <div class="big" id="hero-piti">$1,829</div>
+    <div class="big" id="hero-piti" data-lead="Total monthly payment">$1,829</div>
     <div class="sub" id="hero-note">VA, zero down, 6.76%, 30 year</div>
   </div>
   <dl class="stack">
@@ -255,12 +256,11 @@ footer b{color:var(--ink-2)}
 </section>
 
 <div class="actions">
-  <a class="send" id="sendmail" href="mailto:dustin@homes-lawton.com?subject=VA%20Loan%20Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path></svg>Email me this breakdown</a>
   <button type="button" class="primary" id="btn-print">Print or save as PDF</button>
   <button type="button" id="btn-example">Load an example household</button>
   <button type="button" id="btn-reset">Reset</button>
 </div>
-<p class="sendhint">The email button opens your own mail app with these numbers already filled in. Send it and I'll reply with what's actually listed in this payment range, plus anything in the income picture I'd push back on before we submit it to a lender.</p>
+<p class="sendhint">Print or save this as a PDF and I'll email you a copy of the exact scenario on screen, then follow up with anything in the income picture I'd push back on before it goes to a lender.</p>
 
 <!-- ============ TABS ============ -->
 <div class="tabs" role="tablist" aria-label="VA loan calculator sections">
@@ -425,7 +425,7 @@ footer b{color:var(--ink-2)}
     </table>
   </div>
   <div class="cards">
-    <div class="card"><span class="lab">Total qualifying income</span><span class="v blue" id="q-total">$0</span><p>Taxable income plus tax-free income grossed up. This is the number used against the debt-to-income ratio.</p></div>
+    <div class="card"><span class="lab">Total qualifying income</span><span class="v blue" id="q-total" data-lead="Total qualifying income">$0</span><p>Taxable income plus tax-free income grossed up. This is the number used against the debt-to-income ratio.</p></div>
     <div class="card"><span class="lab">Approx. net take-home</span><span class="v" id="q-net">$0</span><p>Taxable income after an estimated withholding rate, plus tax-free income at face value. Used for the VA residual income test on the next tab.</p></div>
     <div class="card"><span class="lab">Tax-free share of income</span><span class="v" id="q-share">0%</span><p>How much of qualifying income is BAH, BAS, or disability compensation rather than taxable pay.</p></div>
   </div>
@@ -454,8 +454,8 @@ footer b{color:var(--ink-2)}
     </div>
   </div>
   <div class="cards">
-    <div class="card"><span class="lab">Debt-to-income ratio</span><span class="v" id="d-dti">0%</span><p id="d-dti-note">House payment plus other debts, divided by qualifying income.</p></div>
-    <div class="card"><span class="lab">VA residual income</span><span class="v" id="d-resid">$0</span><p id="d-resid-note">Approx. net income minus the house payment and other debts.</p></div>
+    <div class="card"><span class="lab">Debt-to-income ratio</span><span class="v" id="d-dti" data-lead="Debt-to-income ratio">0%</span><p id="d-dti-note">House payment plus other debts, divided by qualifying income.</p></div>
+    <div class="card"><span class="lab">VA residual income</span><span class="v" id="d-resid" data-lead="VA residual income">$0</span><p id="d-resid-note">Approx. net income minus the house payment and other debts.</p></div>
     <div class="card"><span class="lab">Residual income required</span><span class="v" id="d-req">$0</span><p id="d-req-note">Family size and region minimum.</p></div>
   </div>
   <div class="note" id="d-verdict-note">
@@ -470,7 +470,7 @@ footer b{color:var(--ink-2)}
     </table>
   </div>
   <div class="cards">
-    <div class="card"><span class="lab">Supportable purchase price</span><span class="v blue" id="d-supportable">$0</span><p>The lower of the two ceilings above &mdash; the more conservative number to shop with.</p></div>
+    <div class="card"><span class="lab">Supportable purchase price</span><span class="v blue" id="d-supportable" data-lead="Supportable purchase price">$0</span><p>The lower of the two ceilings above &mdash; the more conservative number to shop with.</p></div>
   </div>
 </section>
 
@@ -704,44 +704,6 @@ footer b{color:var(--ink-2)}
     $("hero-note").textContent = "VA, " + dtxt + ", " + rateTxt + "%, " + $("term").value + " year";
     if (c.hoa > 0) $("hero-note").textContent += ", includes " + money(c.hoa) + " HOA";
     $("downhint").textContent = money(c.down) + " out of pocket";
-    buildMail(c);
-  }
-
-  function buildMail(c){
-    var h = household();
-    var L = [];
-    L.push("Hi Dustin,");
-    L.push("");
-    L.push("I ran some numbers in your VA loan calculator. Here is where I landed:");
-    L.push("");
-    L.push("Purchase price: " + money(c.price));
-    L.push("Down payment: " + (c.downPct === 0 ? "zero down" : c.downPct + "% (" + money(c.down) + ")"));
-    L.push("Rate: " + num("rate", 6.76) + "%, " + $("term").value + " year");
-    L.push("Funding fee financed: " + money(c.financed));
-    L.push("");
-    L.push("Monthly payment breakdown:");
-    L.push("  Principal and interest: " + money(c.pi));
-    L.push("  Property tax: " + money(c.tax));
-    L.push("  Homeowners insurance: " + money(c.ins));
-    if (c.hoa > 0) L.push("  HOA: " + money(c.hoa));
-    L.push("  Total monthly payment: " + money(c.total));
-    L.push("");
-    L.push("Household income:");
-    L.push("  Borrower 1 qualifying income: " + money(h.a.taxable + h.a.taxfree * (1 + num("growup", 25) / 100)));
-    if (h.includeB) L.push("  Borrower 2 qualifying income: " + money(h.b.taxable + h.b.taxfree * (1 + num("growup", 25) / 100)));
-    L.push("  Total qualifying income: " + money(h.qualifying));
-    L.push("");
-    L.push("A couple of things I'd like to know:");
-    L.push("  - Does this income picture look right to a lender?");
-    L.push("  - Anything in these numbers that looks off to you?");
-    L.push("");
-    L.push("Thanks,");
-    L.push("");
-
-    var subject = "VA loan numbers - " + money(c.price) + " at " + money(c.total) + " a month";
-    $("sendmail").href = "mailto:dustin@homes-lawton.com"
-      + "?subject=" + encodeURIComponent(subject)
-      + "&body=" + encodeURIComponent(L.join("\n"));
   }
 
   function borrowerRow(name, d, growPct){
@@ -910,7 +872,6 @@ footer b{color:var(--ink-2)}
     });
   });
 
-  $("btn-print").addEventListener("click", function(){ window.print(); });
   $("btn-example").addEventListener("click", loadExample);
   $("btn-reset").addEventListener("click", function(){
     $("price").value = 199500;
@@ -946,5 +907,6 @@ footer b{color:var(--ink-2)}
   renderAll();
 })();
 </script>
+<script src="assets/leadgate.js" defer></script>
 </body>
 </html>
