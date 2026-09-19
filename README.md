@@ -26,8 +26,7 @@ emails the buyer their copy, and logs the lead to a Google Sheet. The print
 dialog opens either way, so a network hiccup never costs a visitor their printout.
 
 One-time setup (about five minutes) is in [`setup/README.md`](setup/README.md).
-Until the web app URL is pasted into `ENDPOINT` in `assets/leadgate.js`, the
-gate still works but leads are only logged to the browser console.
+The web app URL lives in `ENDPOINT` at the top of `assets/leadgate.js`.
 
 Pages that use it: the payment toolkit, the VA loan calculator, the buydown
 tool, the BAH calculator, and the buying guide. A page opts in by including the
