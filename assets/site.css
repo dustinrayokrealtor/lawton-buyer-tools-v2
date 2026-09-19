@@ -442,3 +442,79 @@ footer:not(.site) p { font-size: 12px; color: var(--muted); line-height: 1.6; ma
   footer.site { background: #fff; color: #000; padding-bottom: 0; }
   footer.site p, footer.site .eiooo, footer.site a { color: #000; }
 }
+
+/* ==========================================================================
+   Lead gate — the Print / Save as PDF button asks for a name, email and
+   phone once, then prints. Square, flat, same tokens as everything else.
+   ========================================================================== */
+
+.lg-backdrop {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(30, 36, 48, .72);
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+}
+.lg-backdrop[hidden] { display: none !important; }
+.lg-modal {
+  background: var(--paper);
+  border: 2px solid var(--blue);
+  border-top: 6px solid var(--red);
+  width: 100%; max-width: 460px;
+  padding: 26px 24px 22px;
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 15px; line-height: 1.55;
+  max-height: calc(100vh - 32px); overflow: auto;
+}
+.lg-modal h2 { font-size: 24px; margin: 0 0 6px; }
+.lg-modal h2::after {
+  content: ""; display: block; width: var(--rule-w); max-width: 100%;
+  height: 0; border-bottom: 1.6px solid var(--red); margin: 14px 0 4px;
+}
+.lg-modal p { margin: 8px 0 16px; color: var(--ink-2); font-size: 14.5px; }
+.lg-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+.lg-field label {
+  font-family: var(--font-ui); font-size: 12px; font-weight: 600;
+  letter-spacing: 2.2px; text-transform: uppercase; color: var(--muted);
+}
+.lg-field input {
+  font-family: var(--font-ui); font-size: 17px; font-weight: 600;
+  padding: 11px 12px; border: 2px solid var(--pale); background: var(--paper);
+  color: var(--ink); width: 100%; border-radius: 0;
+}
+.lg-field input:focus { outline: none; border-color: var(--blue); }
+.lg-field input[aria-invalid="true"] { border-color: var(--red); }
+.lg-err { font-size: 12.5px; color: var(--red-dark); min-height: 1.2em; margin: -4px 0 8px; }
+.lg-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.lg-row button {
+  font-family: var(--font-ui); font-size: 14px; font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase;
+  padding: 13px 20px; cursor: pointer; border-radius: 0;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.lg-primary { background: var(--red); color: var(--paper); border: 2px solid var(--red); flex: 1; justify-content: center; }
+.lg-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.lg-primary[disabled] { opacity: .7; cursor: progress; }
+.lg-cancel { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+.lg-cancel:hover { background: var(--blue); color: var(--paper); }
+.lg-fine { font-size: 12px; color: var(--muted); margin: 14px 0 0; line-height: 1.5; }
+
+.lg-toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+  z-index: 101; background: var(--navy); color: var(--paper);
+  border-left: 4px solid var(--paper);
+  padding: 12px 18px; font-family: var(--font-ui); font-size: 14px; font-weight: 600;
+  max-width: calc(100% - 32px);
+}
+.lg-toast[hidden] { display: none !important; }
+@media (max-width: 680px) { .lg-toast { bottom: 84px; } }
+
+/* While the PDF snapshot is being captured: show every tab panel, hide chrome. */
+body.pdf-mode .tabs, body.pdf-mode .actions, body.pdf-mode .stickybar,
+body.pdf-mode .sendhint, body.pdf-mode .hero-cta, body.pdf-mode .hero-actions,
+body.pdf-mode .btnrow, body.pdf-mode .ctawrap, body.pdf-mode .sitenav,
+body.pdf-mode .backlink, body.pdf-mode details, body.pdf-mode .lg-backdrop,
+body.pdf-mode .lg-toast { display: none !important; }
+body.pdf-mode .panel { display: flex !important; padding-top: 14px; border-top: 1px solid var(--line); margin-top: 14px; }
+body.pdf-mode header.site { position: static; }
+body.pdf-mode .printonly { display: block !important; }
